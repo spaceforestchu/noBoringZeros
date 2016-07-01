@@ -1,0 +1,35 @@
+function noBoringZeros(n) {
+ var numStr, result = "", final = "", finalAnswer, firstChar, lastChar;
+ numStr = n.toString();
+
+ firstChar = numStr[0];
+ lastChar = numStr[numStr.length-1];
+
+  if( n === 0) {return 0}
+  
+  for(var i = numStr.length - 1; i >= 0; i--){
+  	if(numStr[i] === "0" && numStr[i-1] === "0"){
+  		continue;
+  	} else if(firstChar !== "0" && lastChar !== '0') {
+  		return parseInt(numStr);
+  	} else {
+  		result += numStr[i];
+  	}
+  }
+  
+ for(i = result.length - 1; i >= 0; i--){
+   final += result[i];
+ }	 
+
+ if(final[final.length-1] === "0"){
+    finalAnswer = final.slice(0, final.length-1);
+ 	return parseInt(finalAnswer);
+ } else {
+    finalAnswer = parseInt(final);
+    return finalAnswer;
+ }
+ 
+
+}
+
+noBoringZeros(-503);
